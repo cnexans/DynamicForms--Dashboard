@@ -6,13 +6,14 @@
  * @description
  * # adminPosHeader
  */
-angular.module('sbAdminApp')
-	.directive('header',function(){
-		return {
-        templateUrl:'scripts/directives/header/header.html',
-        restrict: 'E',
-        replace: true,
-    	}
-	});
+angular.module('dynamicForms')
 
+
+.directive('header',function(){
+	return {
+       templateUrl:'scripts/directives/header/header.html',
+       restrict: 'E',
+       replace: true,
+   	}
+});
 

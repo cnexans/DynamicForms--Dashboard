@@ -7,7 +7,7 @@
  * # adminPosHeader
  */
 
-angular.module('sbAdminApp')
+angular.module('dynamicForms')
   .directive('sidebar',['$location',function() {
     return {
       templateUrl:'scripts/directives/sidebar/sidebar.html',
@@ -15,10 +15,16 @@ angular.module('sbAdminApp')
       replace: true,
       scope: {
       },
-      controller:function($scope){
+      controller:function($scope, $formsApi){
         $scope.selectedMenu = 'dashboard';
         $scope.collapseVar = 0;
         $scope.multiCollapseVar = 0;
+
+        $formsApi.currentUserInfo()
+        .then(function (infoResponse) {
+          console.log(infoResponse);
+          $scope.userLevel = infoResponse.level;
+        });
         
         $scope.check = function(x){
           

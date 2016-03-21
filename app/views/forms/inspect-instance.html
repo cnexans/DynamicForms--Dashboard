@@ -1,0 +1,35 @@
+<div class="container-fluid">
+	<div class="row">
+	    <div class="col-lg-12">
+	        <h1 class="page-header">Respuesta</h1>
+	        <p></p>
+	    </div> 
+		<div class="col-md-10 col-md-offset-1 col-xs-12" ng-repeat="(i, field) in fields track by $index"><div class="panel panel-default">
+			<div class="panel-heading blue">
+                {{ field.descriptor.label }}
+            </div>
+            <div class="panel-body">
+				<div class="col-lg-12">
+
+                    <img ng-src="{{ field.value }}" ng-if="field.descriptor.type == 'PHOTO' || field.descriptor.type == 'CANVAS_PHOTO'">
+
+                    <div ng-if="field.descriptor.type == 'LOCATION'" class="col-lg-12">
+						<ul class="list-group option-list-input">
+							<li class="list-group-item">Latitud  {{ field.value.lat }}</li>
+							<li class="list-group-item">Longitud {{ field.value.lng }}</li>
+						</ul>
+
+						<iframe width="100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" ng-src="{{ field.value.url }}"></iframe>
+                    </div>
+
+					<div class="form-group margin-zero bold" ng-if="field.descriptor.type != 'PHOTO' && field.descriptor.type != 'CANVAS_PHOTO' && field.descriptor.type != 'LOCATION'">
+						<label>{{ field.value }}</label>
+                    </div>
+
+				</div>		
+            </div>
+		</div></div><!-- end of col-md-10 -->
+		<!-- /.col-lg-12 -->
+	</div>
+	<!-- /.row -->
+</div>

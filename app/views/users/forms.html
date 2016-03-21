@@ -1,0 +1,40 @@
+<div class="container-fluid">
+	<div class="row">
+	    <div class="col-lg-12">
+	        <h1 class="page-header">Permisos de empleado</h1>
+	        <p>En esta seccion puede ver una lista de los formularios y asignar o revocar permisos de responderlos al usuario <strong>{{ user.name == '' ? user.email : user.name }}</strong></p>
+	    </div> 
+		<div class="col-lg-12 spacer-top">
+	        <table class="table table-bordered table-striped">
+	            <thead>
+	                <tr>
+	                    <th>Nombre</th>
+	                    <th>Fecha de creacion</th>
+	                    <th>Opciones</th>
+	                </tr>
+	            </thead>
+	            <tbody>
+	                <tr ng-repeat="form in pagedItems[currentPage]">
+	                    <th>{{ form.name }}</th>
+	                    <th>
+	                    	{{ form.created_at.getDate() }}/{{ form.created_at.getMonth()+1 }}/{{ form.created_at.getFullYear() }}
+	                    </th>
+	                    <td>
+	                    	<a class="btn btn-info btn-sm" ng-show="!form.hasPermission" ng-click="givePermission(form.id)">Asignar permisos</a>
+	                    	<a class="btn btn-danger btn-sm" ng-show="form.hasPermission" ng-click="revokePermission(form.id)">Revocar permisos</a>
+	                	</td>
+	                </tr>
+	            </tbody>
+	        </table>
+
+	        <div class="col-lg-12">
+	        	<span class="pull-left">Mostrando {{ pagedItems[currentPage].length }} resultados de {{ forms.length }}</span>
+	        	<button class="btn btn-default btn-md pull-right" ng-click="nextPage()">Siguiente &rarr;</button>
+	        	<button class="btn btn-default btn-md pull-right" ng-click="prevPage()">&larr; Anterior</button>
+	        	<div class="clearfix"></div>
+	        </div>			
+		</div>
+		<!-- /.col-lg-12 -->
+	</div>
+	<!-- /.row -->
+</div>

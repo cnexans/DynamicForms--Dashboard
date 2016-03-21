@@ -1,0 +1,92 @@
+<div class="container-fluid">
+	<div class="row">
+	    <div class="col-lg-12">
+	        <h1 class="page-header">Crear nuevo formulario</h1>
+	        <p>En esta seccion puede crear un nuevo formulario para su app, para comenzar indique el nombre del formulario (como factura, producto, reporte de problema, etc), luego presione agregar campo y siga las instrucciones.</p>
+	    </div> 
+        <div class="col-md-10 col-md-offset-1 col-xs-12" ng-show="failValidity">
+            <div class="panel panel-default">
+                <div class="panel-heading red">
+                    Ups
+                </div>
+                <div class="panel-body">
+                    <p>Verifique que ha llenado todos los campos</p>
+                </div>
+            </div>
+        </div>
+
+
+		<form name="fieldsForm">
+
+	    <div class="col-md-10 col-md-offset-1 col-xs-12">
+	    	<div class="form-group">
+	            <input type="text" class="form-control" placeholder="Nombre de formulario" ng-model="form.name" required>
+	        </div>	
+	    </div>
+
+		<div class="col-md-10 col-md-offset-1 col-xs-12" ng-repeat="(i, field) in fields track by $index"><div class="panel panel-default">
+			<div class="panel-heading blue">
+                Campo #{{ i+1 }}
+            </div>
+            <div class="panel-body">
+				<div class="col-lg-12">
+					<div class="form-group">
+						<label>{{ i == 0 ? 'El nombre del campo le permitira identificar la informacion en el futuro. Si esta haciendo el formulario para el registro de una factura, por ejemplo, podria pedir un texto que contenga la empresa de la factura, un buen nombre para ello seria "Empresa"' : 'Nombre del campo' }}</label>
+                        <input type="text" class="form-control" placeholder="Nombre del campo" ng-model="field.label" required>
+                    </div>
+					<div class="form-group">
+						<label>{{ i == 0 ? 'El texto de ayuda le permite a los empleados tener una mejor idea del dato que se le pide para poder completar el formulario, sin embargo, esto no es requerido para crear el campo.' : 'Texto de ayuda' }}</label>
+                        <input type="text" class="form-control" placeholder="Texto de ayuda" ng-model="field.question" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Tipo de campo</label>
+                        <select class="form-control" ng-model="field.type">
+                            <option value="STRING">Campo de texto corto, menos de 255 caracteres.</option>
+                            <option value="TEXT">Campo de texto largo.</option>
+                            <option value="PHOTO">Foto</option>
+                            <option value="CANVAS_PHOTO">Foto con dibujo o firma</option>
+                            <option value="NUMBER">Campo numerico</option>
+                            <option value="RATING">Rating</option>
+                            <option value="OPTION">Seleccion de opciones</option>
+                            <option value="QR_CODE">Lectura de codigo QR</option>
+                            <option value="LOCATION">Posicion de GPS</option>
+                            <option value="DATE">Campo de fecha</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-12" ng-if="field.type === 'OPTION'">
+                    	<label>Opciones seleccionables</label>
+						<ul class="list-group option-list-input">
+							<li class="list-group-item" ng-repeat="(j, option) in field.options track by $index">
+								<div class="row">
+									<div class="col-lg-10">
+										<input type="text" class="form-control" placeholder="Nombre del campo" ng-model="option.display_name" required>
+									</div>
+									<div class="col-lg-2">
+										<a class="delete" ng-click="deleteOption(i, j)">Eliminar</a>
+									</div>
+
+									<div class="clearfix"></div>
+								</div>
+							</li>
+						</ul>
+
+						<button class="btn btn-info btn-sm pull-left" ng-click="addOption(i)">Agregar opcion</button>
+						<div class="clearfix"></div>
+                    </div>
+                    <button class="btn btn-md btn-danger pull-right" ng-click="deleteField(i)">Eliminar campo</button>
+				</div>		
+            </div>
+		</div></div><!-- end of col-md-10 -->
+
+		</form>
+
+		<div class="col-md-10 col-md-offset-1 col-xs-12">
+			<button class="btn btn-md btn-success pull-right bit-spacing-left" ng-click="createForm()">Guardar y crear formulario</button>
+			<button class="btn btn-md btn-info pull-right" ng-click="addField()">Agregar campo</button>
+			<div class="clearfix"></div>
+		</div>
+
+		<!-- /.col-lg-12 -->
+	</div>
+	<!-- /.row -->
+</div>

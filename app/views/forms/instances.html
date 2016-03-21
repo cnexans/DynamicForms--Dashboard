@@ -1,0 +1,39 @@
+<div class="container-fluid">
+	<div class="row">
+	    <div class="col-lg-12">
+	        <h1 class="page-header">Respuestas</h1>
+	        <p>En esta seccion puede ver las respuestas al formulario que ha seleccionado previamente. Indica quien lo respondio y cuando, de la misma manera, puede inspeccionarlo para ver los detalles de la respuesta.</p>
+	    </div> 
+		<div class="col-lg-12">
+	        <table class="table table-bordered table-striped">
+	            <thead>
+	                <tr>
+	                    <th>Nombre</th>
+	                    <th>Fecha de creacion</th>
+	                    <th>Opciones</th>
+	                </tr>
+	            </thead>
+	            <tbody>
+	                <tr ng-repeat="instance in pagedItems[currentPage]">
+	                    <th>{{ instance.answered_by.name == '' ? instance.answered_by.email : instance.answered_by.name  }}</th>
+	                    <th>
+	                    	{{ instance.created_at.getDate() }}/{{ instance.created_at.getMonth()+1 }}/{{ instance.created_at.getFullYear() }}
+	                    </th>
+	                    <td>
+							<button class="btn btn-info btn-sm"  ui-sref="dashboard.inspect-instance({instanceId:instance.id})">Inspeccionar</button>
+	                	</td>
+	                </tr>
+	            </tbody>
+	        </table>
+
+	        <div class="col-lg-12">
+	        	<span class="pull-left">Mostrando {{ pagedItems[currentPage].length }} resultados de {{ instances.length }}</span>
+	        	<button class="btn btn-default btn-md pull-right" ng-click="nextPage()">Siguiente &rarr;</button>
+	        	<button class="btn btn-default btn-md pull-right" ng-click="prevPage()">&larr; Anterior</button>
+	        	<div class="clearfix"></div>
+	        </div>			
+		</div>
+		<!-- /.col-lg-12 -->
+	</div>
+	<!-- /.row -->
+</div>

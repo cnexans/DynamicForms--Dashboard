@@ -6,7 +6,7 @@
  * # MainCtrl
  * Controller of the sbAdminApp
  */
-angular.module('sbAdminApp')
+angular.module('dynamicForms')
   .controller('FormCtrl', function($scope) {
     
 });

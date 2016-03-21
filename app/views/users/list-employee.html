@@ -1,0 +1,39 @@
+<div class="container-fluid">
+	<div class="row">
+	    <div class="col-lg-12">
+	        <h1 class="page-header">Asignar formularios a usuarios</h1>
+	        <p>En esta seccion puede ver los formularios que puede responder un usuario en especifico. Puede darle permisos para responder otros formularios a traves del app o bien, revocarselos.</p>
+	    </div> 
+		<div class="col-lg-12 spacer-top">
+	        <table class="table table-bordered table-striped">
+	            <thead>
+	                <tr>
+	                    <th>Nombre</th>
+	                    <th>Email</th>
+	                    <th>Opciones</th>
+	                </tr>
+	            </thead>
+	            <tbody>
+	                <tr ng-repeat="user in pagedItems[currentPage]">
+	                    <th>{{ user.name }}</th>
+	                    <td>{{ user.email }}</td>
+	                    <td>
+	                    	<a class="btn btn-success btn-sm" ui-sref="dashboard.user-forms({userId: user.id})">Formularios asignados</a>
+	                    	<a class="btn btn-info btn-sm" ui-sref="dashboard.edit-user({userId: user.id})">Modificar usuario</a>
+	                    	<a class="btn btn-danger btn-sm" ng-click="removeUser(user.email)">Eliminar usuario</a>
+	                	</td>
+	                </tr>
+	            </tbody>
+	        </table>
+
+	        <div class="col-lg-12">
+	        	<span class="pull-left">Mostrando {{ pagedItems[currentPage].length }} resultados de {{ users.length }}</span>
+	        	<button class="btn btn-default btn-md pull-right" ng-click="nextPage()">Siguiente &rarr;</button>
+	        	<button class="btn btn-default btn-md pull-right" ng-click="prevPage()">&larr; Anterior</button>
+	        	<div class="clearfix"></div>
+	        </div>			
+		</div>
+		<!-- /.col-lg-12 -->
+	</div>
+	<!-- /.row -->
+</div>

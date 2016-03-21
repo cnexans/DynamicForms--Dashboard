@@ -1,0 +1,120 @@
+body
+{
+	font-family: 'Montserrat', sans-serif;
+}
+
+.montserrat-font
+{
+	font-family: 'Montserrat', sans-serif;
+}
+.helvetica-font
+{
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.navbar-default .navbar-brand,
+.navbar-default .navbar-brand:hover
+{
+	font-weight: 700;
+	text-shadow: 1px 1px 2px #fff;
+	font-size:1.5em;
+	color:#000;
+}
+
+#side-menu, body, .navbar-default
+{
+	background:#ecf0f1;
+}
+
+#side-menu > li > a > i.fa 
+{
+	padding-right:8px;
+}
+
+#side-menu > li > a
+{
+	color:#2c3e50;
+	-webkit-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+#side-menu > li.active > a,
+#side-menu > li:hover > a,
+#side-menu > li > a:hover
+{
+	color:#fff;
+	background:#3498db;
+	-webkit-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+.sidebar-search .input-btn-group
+{
+	position: relative;
+	top:-1px;
+}
+
+#page-wrapper
+{
+	border-radius:6px;
+}
+
+.panel-heading.red
+{
+	background: #e74c3c;
+	color:#fff;
+}
+
+.panel-heading.green
+{
+	background: #5cb85c;
+	color:#fff;
+}
+
+.panel-heading.light-green
+{
+	color:#fff;
+	background: #2ecc71;
+}
+
+.panel-heading.blue
+{
+	background: #2980b9;
+	color:#fff;
+}
+
+.spacer-top
+{
+	padding-top:40px;
+}
+
+.spacer-bottom
+{
+	padding-bottom:40px;
+}
+
+label
+{
+	font-weight:400;
+}
+
+.bit-spacing-left
+{
+	margin-left:20px;
+}
+
+.option-list-input .delete {
+	line-height:35px;
+	cursor:pointer;
+}
+
+.form-group.margin-zero
+{
+	margin:0;
+}
+
+.form-group.bold label
+{
+	font-weight:700;
+}

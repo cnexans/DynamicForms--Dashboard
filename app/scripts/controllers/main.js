@@ -6,6 +6,10 @@
  * # MainCtrl
  * Controller of the sbAdminApp
  */
-angular.module('sbAdminApp')
-  .controller('MainCtrl', function($scope,$position) {
-  });
+angular.module('dynamicForms')
+
+
+.controller('MainCtrl', function($scope, $position, $formsApi)
+{
+
+});
