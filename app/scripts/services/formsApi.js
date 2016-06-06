@@ -3,7 +3,7 @@ app.service("$formsApi", function($http, $q, $auth) {
 
 	var _this = this;
 
-	this.baseURL = 'http://forms-api.cnexans.com';
+	this.baseURL = 'http://localhost';
 	this.token = null;
 
 	$auth.setBaseURL(_this.baseURL);
